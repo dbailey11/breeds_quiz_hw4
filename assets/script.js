@@ -33,7 +33,7 @@ var qTime = 10; //timer per question
 var Timer; //interval timer
 var score = 0;
 
-submitBtn = get("submitBtn");
+var submitBtn = get("submitBtn");
 
 //get function that will call elementIDs from HTML without all the code
 function get(x) {
@@ -87,17 +87,7 @@ function renderProgress() {
     }
 }
 
-
-// function myTimer() {
-//     document.getElementById('timer').innerHTML = questionTime + "sec left";
-//     questionTime--;
-//     if (questionTime == -1) {
-//         clearInterval(time);
-//         alert("Time out!! :(");
-//     }
-// }
-
-// //counter render function
+//counter render function
 function renderCounter () {
     if(count <= qTime) { //if user didn't exceed 10 seconds
         get("counter").innerHTML = count;
@@ -168,24 +158,27 @@ start.addEventListener("click", startQuiz);
 
 //function to show previous saved score
 function renderPreviousScore() {
+    //declaring variables
     userInitials = get("userInitials");
     userInput = get("userInput");
+    prevScore = get("preveScore");
 
+    //getting user input from local storage????
     userInput = localStorage.getItem("userInput");
 
     if(!userInput) {
         return;
     }
-
-    userInput.textContent = userInput;
+    //inputing text from local storage to "previous score" div
+    userInput.textContent = prevScore;
 
 }
 console.log('bye', renderPreviousScore);
 
 
-
+//event listner function for submit button
 submitBtn.addEventListener("click", function(event) {
-    console.log("hi", event);
+    // console.log("hi", event);
     userInput = get("userInput");
 
     if(userInput === "") {
