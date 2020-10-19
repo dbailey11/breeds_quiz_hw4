@@ -13,13 +13,13 @@
 ## Screenshots
 
 - Main start page.
-  ![image](assets\img\breeds_quiz_hw4_start.png)
+  ![Image of start page](assets/img/breeds_quiz_hw4_start.png)
 
 - Questions and choices page that includes the timer as well as progress bubbles that show if you got the question right or wrong.
-  ![image](assets\img\breeds_quiz_hw4_q.png)
+  ![Image of questions page](assets/img/breeds_quiz_hw4_q.png)
 
   * End page where you find out your score percent and can enter in initials to save your score and display the values.
-  ![image](assets\img\breeds_quiz_hw4_end.png)
+  ![Image of end page](assets/img/breeds_quiz_hw4_end.png)
 
   ## Contributers/Resources
 
