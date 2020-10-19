@@ -4,7 +4,7 @@ body{
 }
 
 #prevScore {
-    text-align: left;
+    text-align: center;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -21,7 +21,7 @@ body{
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px;
     position: relative;
-    background-color: #b6b1a9;
+    background-image: url("img/dogbreeds.jpg");
 }
 
 #start{
@@ -37,11 +37,12 @@ body{
     left:300px;
     top:150px;
     color : rgb(17, 1, 1);
-    background-color: #EED1CA;
+    background-color: #ebd4ce;
     z-index: 1;
     padding: 5px;
     font-family: 'Raleway', sans-serif;
 }
+
 #start:hover{
     border: 3px solid #80B0AD;
     color : teal;
@@ -62,7 +63,7 @@ img {
     right: 100px;
     top: 3px;
     border-radius: 0%;
-    background-color: #EED1CA;
+    background-color: #ebd4ce;
     padding: 10px;
     border: 2px solid black;
 }
@@ -90,7 +91,7 @@ img {
     border-radius: 0px;
     cursor: pointer;
     padding : 5px;
-    background-color: #EED1CA;
+    background-color: #ebd4ce;
     border: 1px solid black;
     font-family: 'Raleway', sans-serif;
 }
@@ -105,12 +106,11 @@ img {
     width : 200px;
     bottom : 0px;
     text-align: center;
-    background-color: #EED1CA;
+    background-color: #ebd4ce;
     border: 1px solid black;
 }
 #counter{
     font-size: 3em;
-    /* margin-bottom: 5px; */
 } 
 
 #progress{
@@ -132,14 +132,12 @@ img {
 }
 #scoreContainer{
     margin : 10px;
-    background-color: #EED1CA;
-    /* opacity: 0; */
+    background-color: #ebd4ce;
     height: 300px;
     width : 675px;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px;
     position: absolute;
-    /* display: none; */
     z-index: 2;
     text-align: center;
     font-family: 'Raleway', sans-serif;

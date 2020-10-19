@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class="col" id="prevScore">
-                    <h5>Previous score:</h3>
+                    <h5 id="prevScore">Previous score:</h5>
                 </div>
                 <div class="col" id="quizName">
                     <h1>Dog Breed Quiz</h1>
@@ -24,7 +24,6 @@
     </head>
     <div id="container">
         <div id="start">Start Quiz!</div>
-            <!-- <img src="assets\img\dogbreeds.jpg" alt="Dogs" style="width:100%"> -->
         <div id="quiz" style="display: none">
             <div id="question"></div>
             <div id="qImg"></div>
@@ -46,8 +45,8 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Enter your initials to save your score!</label>
                 <input type="text" class="form-control" id="userInput" aria-describedby="userInitials" placeholder="Enter initials!">
-                <small id="userInitials" class="form-text text-muted"></small>
-                <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                <small id="userInitials" class="form-text"></small>
+                <button type="submit" class="btn btn-primary" id="submitBtn" onclick="saveScore()">Submit</button>
               </div>
         </div>
     </div>

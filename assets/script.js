@@ -28,10 +28,11 @@ let quizQuestions = [
 //declaring variables and constants
 const lastQuestion = quizQuestions.length - 1; //index of questions
 let runningQuestion = 0; //variable to keep track of running quesitons
-var count = 0;
-var qTime = 10; //timer per question
+var count = 30;
+var qTime = 30; //timer per question
 var Timer; //interval timer
 var score = 0;
+var scorePerCent = 0;
 
 var submitBtn = get("submitBtn");
 
@@ -89,20 +90,15 @@ function renderProgress() {
 
 //counter render function
 function renderCounter () {
-    if(count <= qTime) { //if user didn't exceed 10 seconds
+    if(count > 0) { //if user didn't exceed 10 seconds
         get("counter").innerHTML = count;
-        count++
+        count-=1;
     } else { //user goes over the 10 seconds
         // count = 0;
         answerIsWrong();
-        if(runningQuestion < lastQuestion) {
-            runningQuestion++
-            renderQuestion();
-        } else {
-            //end quiz and show score
-            clearInterval(Timer);
-            scoreRender ();
-        }
+        clearInterval(Timer);
+        scoreRender ();
+        
     }
 }
 // console.log("hi", renderCounter);
@@ -115,8 +111,8 @@ function checkAnswer(answer) {
     } else {
         //answer is wrong and change progress to red
         answerIsWrong();
+        count -= 5;
     }
-    count = 0;
     if(runningQuestion < lastQuestion) {
         runningQuestion++ //shows next question
         renderQuestion();
@@ -147,7 +143,7 @@ function scoreRender() {
     quiz.style.display = "none";
 
     //calculate percent answered correctly
-    const scorePerCent = Math.round(100 * score/quizQuestions.length);
+    scorePerCent = Math.round(100 * score/quizQuestions.length);
 
     //display percent
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
@@ -159,38 +155,32 @@ start.addEventListener("click", startQuiz);
 //function to show previous saved score
 function renderPreviousScore() {
     //declaring variables
-    userInitials = get("userInitials");
     userInput = get("userInput");
     prevScore = get("preveScore");
 
-    //getting user input from local storage????
-    userInput = localStorage.getItem("userInput");
+    //getting user input from local storage
+    userInput = localStorage.getItem("userInitials");
+    prevScore = localStorage.getItem("userScore");
 
-    if(!userInput) {
+    if(!userInput) { //if user doesn't put in anything
         return;
     }
     //inputing text from local storage to "previous score" div
-    userInput.textContent = prevScore;
+    get("prevScore").textContent += prevScore + "%" + " " + userInput;
 
 }
-console.log('bye', renderPreviousScore);
+// console.log('bye', renderPreviousScore);
 
+console.log("hi", userInput);
 
-//event listner function for submit button
-submitBtn.addEventListener("click", function(event) {
-    // console.log("hi", event);
-    userInput = get("userInput");
+function saveScore() {
 
-    if(userInput === "") {
-        displayMessage("Don't want to save? OK!")
-    } else {
-        displayMessage("Your score has been saved!")
-        
-    }
+    var uInput = get("userInput").value;
+    // console.log("A", uInput);
 
-    localStorage.setItem("userInput", userInput);
+    //pulling stored user input and displaying it
+    localStorage.setItem("userInitials", uInput);
+    localStorage.setItem("userScore", scorePerCent);
     renderPreviousScore();
 
-
-});
-// console.log("howdy", userInput);
+}
